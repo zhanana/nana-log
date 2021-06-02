@@ -1,27 +1,35 @@
-import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from 'vue';
+import VueRouter, { RouteConfig } from 'vue-router';
+import Money from '@/views/Money.vue';
+import Labels from '@/views/Labels.vue';
+import Statistics from '@/views/Statistics.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
+  // 默认路径为money主页
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path:'/',
+    redirect:'/money'
+  },
+  // 以money、labels、statistics三个页面为主的应用
+  {
+    path:'/money',
+    component:Money
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path:'/labels',
+    component:Labels
+  },
+  {
+    path:'/statistics',
+    component:Statistics
   }
-]
+  
+];
 
 const router = new VueRouter({
   routes
-})
+});
 
 export default router
