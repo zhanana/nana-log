@@ -5,9 +5,8 @@
 </template>
 
 <script lang="ts">
-//引入一整个icons目录
 /* eslint-disable */
-
+//引入一整个icons目录
 let importAll = (requireContext:__WebpackModuleApi.RequireContext) => 
 requireContext.keys().forEach(requireContext);
 try {
@@ -26,7 +25,7 @@ export default {
 };
 </script>
 
-<style scoped >
+<style scoped lang="scss">
     .icon{
         width: 1em;
         height: 1em;

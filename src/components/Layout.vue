@@ -18,9 +18,8 @@ export default {
 };
 </script>
 
-<style scoped >
+<style scoped lang="scss">
  .nav-wrapper{
-        border: 1px solid palevioletred;
         display: flex;
         flex-direction: column;
         height: 100vh;
@@ -28,6 +27,5 @@ export default {
     .content{
         flex-grow: 1;
         overflow: auto;
-        border: 1px solid powderblue;
     }
 </style>
