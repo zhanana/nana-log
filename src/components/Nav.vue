@@ -9,6 +9,10 @@
 </template>
 
 <script>
+
+import x from '../assets/icons/bda-label-service.svg'
+console.log(x)
+
 export default {
    name:'Nav'
 };
