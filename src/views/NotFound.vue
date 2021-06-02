@@ -7,17 +7,13 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
     name:'',
     components: {
 
     },
-    data() {
-        return {
 
-        };
-    },
 
 };
 </script>
