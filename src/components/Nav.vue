@@ -34,13 +34,14 @@ export default {
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      color:rgb(255, 77, 136);
       .icon{
         height: 32px;
         width: 32px;
       }
     }
     > .item.selected{
-      color: red;
+      color: rgb(250, 107, 226);
     }
   }
 
