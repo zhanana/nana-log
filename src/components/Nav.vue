@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "~@/assets/style/helper.scss";
   nav {
     display: flex;
     box-shadow: 0 0 3px rgba(0,0,0,0.25);
@@ -34,14 +35,13 @@ export default {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      color:rgb(255, 77, 136);
       .icon{
         height: 32px;
         width: 32px;
       }
     }
     > .item.selected{
-      color: rgb(250, 107, 226);
+      color: $color-highlight;
     }
   }
 
