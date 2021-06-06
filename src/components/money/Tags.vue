@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button>新增标签</button>
+      <button @click="createTag">新增标签</button>
     </div>
     <ul class="current">
       <li
@@ -33,6 +33,15 @@ export default class Tags extends Vue {
     this.selectedTags.push(tag);
     }
   }
+  createTag(){
+    const name = window.prompt("请输入标签名：");
+    if(name === ''){
+      window.alert('标签名不能为空！');
+    }
+    else if(this.dataSource){
+      this.$emit('update:dataSource',[...this.dataSource,name])
+    }
+  }
 }
 </script>
 
@@ -45,6 +54,7 @@ export default class Tags extends Vue {
   flex-direction: column-reverse;
   > .current {
     display: flex;
+    flex-wrap: wrap;
     > li {
       $bg: #d9d9d9;
       background: $bg;
@@ -54,6 +64,7 @@ export default class Tags extends Vue {
       border-radius: $h/2;
       padding: 0 16px;
       margin-right: 12px;
+      margin-bottom: 6px;
       &.selected {
         background: darken($color: $bg, $amount: 50%);
         color: white;
