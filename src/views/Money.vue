@@ -1,6 +1,6 @@
 <template>
   <Layout class-prefix="layout">
-    <Number-pad :value.sync="record.amount"/>
+    <Number-pad :value.sync="record.amount" @submit="saveRecord"/>
     <Types :value.sync="record.type"/>
     <Notes @update:value="onUpdateNotes" />
     <Tags :data-source.sync="tags" @update:value="onUpdateTags" />
@@ -13,7 +13,7 @@ import NumberPad from "@/components/money/NumberPad.vue";
 import Types from "@/components/money/Types.vue";
 import Notes from "@/components/money/Notes.vue";
 import Tags from "@/components/money/Tags.vue";
-import { Component } from "vue-property-decorator";
+import { Component, Watch } from "vue-property-decorator";
 
 type Record = {
   tags: string[];
@@ -31,7 +31,7 @@ type Record = {
 })
 export default class Money extends Vue {
   tags = ["衣", "食", "住", "行", "玩"];
-
+  recordList:Record[] = [];
   record: Record = {
     tags: [],
     notes: " ",
@@ -45,7 +45,15 @@ export default class Money extends Vue {
   onUpdateNotes(value: string) {
     this.record.notes = value;
   }
-
+  saveRecord(){
+    const record2 = JSON.parse(JSON.stringify(this.record)) //深拷贝，record2只是拷贝了record
+    this.recordList.push(record2);
+    console.log(this.recordList)
+  }
+  @Watch('recordList')
+  onRecordListChange(){
+    window.localStorage.setItem('recordList',JSON.stringify(this.recordList))
+  }
 }
 </script>
 
