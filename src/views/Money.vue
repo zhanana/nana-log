@@ -15,7 +15,7 @@ import Notes from "@/components/money/Notes.vue";
 import Tags from "@/components/money/Tags.vue";
 import { Component, Watch } from "vue-property-decorator";
 
-const recordList:Record[] = JSON.parse(window.localStorage.getItem('record') ||'[]');
+const recordList:Record[] = JSON.parse(window.localStorage.getItem('recordList') ||'[]');
 
 type Record = {
   tags: string[];
