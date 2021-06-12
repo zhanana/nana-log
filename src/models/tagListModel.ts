@@ -2,7 +2,7 @@ const localStorageKeyName = 'tagList'
 type TagListModel = {
     data:string[]
     fetch:()=> string[]
-    create:(name:string) =>string
+    create:(name:string) =>string //success 成功，duplicate失败
     save:()=>void
 }
 const tagListModel:TagListModel = {
@@ -12,9 +12,12 @@ const tagListModel:TagListModel = {
         return this.data;
     },
     create(name:string){
+        if(this.data.indexOf(name) >= 0){
+            return 'duplicated';
+        }
         this.data.push(name);
         this.save();
-        return name;
+        return 'success';
     },
     save(){
         window.localStorage.setItem('recordList',JSON.stringify(this.data));
