@@ -12,7 +12,7 @@ type TagListModel = {
 const tagListModel:TagListModel = {
     data: [],
     fetch(){
-        this.data = JSON.parse(window.localStorage.getItem('localStorageKeyName') ||'[]');
+        this.data = JSON.parse(window.localStorage.getItem(localStorageKeyName) ||'[]');
         return this.data;
     },
     create(name:string){
@@ -25,7 +25,7 @@ const tagListModel:TagListModel = {
         return 'success';
     },
     save(){
-        window.localStorage.setItem('recordList',JSON.stringify(this.data));
+        window.localStorage.setItem('tagList',JSON.stringify(this.data));
     },
 }
 export default tagListModel;
