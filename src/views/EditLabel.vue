@@ -9,7 +9,7 @@
       <FormItem field-name="标签名" placeholder="请输入标签名" />
     </div>
     <div class="button-wrapper">
-        <button>删除标签</button>
+        <Button>删除标签</Button>
     </div>
   </layout>
 </template>
@@ -19,10 +19,12 @@ import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import tagListModel from "@/models/tagListModel";
 import FormItem from "@/components/money/FormItem.vue";
+import Button from '@/components/Button.vue';
 
 @Component({
   components: {
     FormItem,
+    Button,
   },
 })
 export default class EditLabel extends Vue {
@@ -49,8 +51,6 @@ export default class EditLabel extends Vue {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  > .title {
-  }
   > .leftIcon {
     width: 24px;
     height: 24px;
