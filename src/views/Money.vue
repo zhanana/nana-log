@@ -31,7 +31,7 @@ type RecordItem = {
   notes: string;
   type: string;
   amount: number;
-  creatAt?: Date;
+  createAt?: Date;
 };
 @Component({
   components: {
@@ -58,13 +58,11 @@ export default class Money extends Vue {
     this.record.notes = value;
   }
   saveRecord() {
-    const record2 = recordListModel.clone(this.record); //深拷贝，record2只是拷贝了record
-    record2.createAt = new Date();
-    this.recordList.push(record2);
+    recordListModel.create(this.record);
   }
   @Watch("recordList")
   onRecordListChange() {
-    recordListModel.save(this.recordList);
+    recordListModel.save();
     //console.log(typeof this.recordList)
   }
 }
