@@ -9,7 +9,7 @@
         @update:value="onUpdateNotes"
       />
     </div>
-    <Tags/>
+    <Tags />
   </Layout>
 </template>
 
@@ -19,10 +19,8 @@ import NumberPad from "@/components/money/NumberPad.vue";
 import Types from "@/components/money/Types.vue";
 import FormItem from "@/components/money/FormItem.vue";
 import Tags from "@/components/money/Tags.vue";
-import { Component} from "vue-property-decorator";
+import { Component } from "vue-property-decorator";
 import store from "@/store/index2";
-
-
 
 type RecordItem = {
   tags: string[];
@@ -38,9 +36,13 @@ type RecordItem = {
     FormItem,
     Tags,
   },
+  computed: {
+    recordList() {
+      return store.recordList;
+    },
+  },
 })
 export default class Money extends Vue {
-  recordList = store.recordList;
   record: RecordItem = {
     tags: [],
     notes: " ",
@@ -54,7 +56,6 @@ export default class Money extends Vue {
   saveRecord() {
     store.createRecord(this.record);
   }
-  
 }
 </script>
 
@@ -63,7 +64,7 @@ export default class Money extends Vue {
   display: flex;
   flex-direction: column-reverse;
 }
-.notes{
+.notes {
   padding: 12px 0;
 }
 </style>
