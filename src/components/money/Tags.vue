@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import tagListModel from "@/models/tagListModel";
+import store from "@/store/index2";
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 
@@ -39,12 +39,7 @@ export default class Tags extends Vue {
   createTag(){
     const name = window.prompt("请输入标签");
     if(name){
-      const message = tagListModel.create(name);
-      if(message==='duplicated'){
-        window.alert('标签名重复');
-      }else if(message==='success'){
-        window.alert('添加成功');
-      }
+      store.createTag(name);
     }
   }
 }
