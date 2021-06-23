@@ -10,7 +10,6 @@
       />
     </div>
     <Tags @update:value="onUpdateTags"/>
-    <button @click="$store.commit('increment',1)">+1</button>
   </Layout>
 </template>
 
