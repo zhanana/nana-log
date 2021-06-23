@@ -10,6 +10,7 @@
       />
     </div>
     <Tags @update:value="onUpdateTags"/>
+    <button @click="$store.commit('increment',1)">+1</button>
   </Layout>
 </template>
 
@@ -20,7 +21,6 @@ import Types from "@/components/money/Types.vue";
 import FormItem from "@/components/money/FormItem.vue";
 import Tags from "@/components/money/Tags.vue";
 import { Component } from "vue-property-decorator";
-import store from "@/store/index2";
 
 type RecordItem = {
   tags: string[];
@@ -38,7 +38,7 @@ type RecordItem = {
   },
   computed: {
     recordList() {
-      return store.recordList;
+      return this.$store.state.recordList;
     },
   },
 })
@@ -49,6 +49,9 @@ export default class Money extends Vue {
     type: "-",
     amount: 0,
   };
+  created(){
+    this.$store.commit('fetchRecords')
+  }
   onUpdateTags(value: string[]) {
     this.record.tags = value;
   }
@@ -56,7 +59,7 @@ export default class Money extends Vue {
     this.record.notes = value;
   }
   saveRecord() {
-    store.createRecord(this.record);
+    this.$store.commit('createRecord',this.record);
   }
 }
 </script>

@@ -1,15 +1,30 @@
+import clone from '@/lib/clone';
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
+
+const store = new Vuex.Store({
+  state:{
+    recordList:[] as RecordItem[]
   },
-  mutations: {
+  mutations:{
+    fetchRecords(state) {
+      state.recordList = JSON.parse(window.localStorage.getItem('recordList') ||'[]') as RecordItem[];
   },
-  actions: {
+    createRecord(state,record){
+      const record2: RecordItem = clone(record); //深拷贝，record2只是拷贝了record
+        record2.createAt = new Date();
+        state.recordList.push(record2);//判断存在才能push
+        console.log(state.recordList);
+        store.commit('saveRecords')
+    },
+    saveRecords(state) {
+      window.localStorage.setItem('recordList',JSON.stringify(state.recordList));
   },
-  modules: {
-  }
-})
+  },
+});
+
+
+export default store;
