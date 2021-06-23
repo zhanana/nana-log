@@ -6,7 +6,7 @@
     <ul class="current">
       <li
         v-for="tag in tagList"
-        :key="tag.ic "
+        :key="tag.id"
         :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
         @click="toggle(tag)"
       >
