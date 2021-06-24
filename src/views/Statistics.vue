@@ -1,22 +1,33 @@
 <template>
-    <div>
-        <Layout>
-        <p>statistics.vue</p>
-        </Layout>
-    </div>
+    <Layout>
+         <Types class-prefix="xxx" :value.sync="yyy"/>
+    </Layout>
 </template>
 
 <script lang="ts">
-export default {
-    name:'Statistics',
+import Types from '@/components/money/Types.vue';
+import Vue from 'vue';
+import { Component } from "vue-property-decorator"
+@Component({
     components: {
-
+        Types,
     },
+})
+export default class Statistics extends Vue{
+    yyy = '-'
 
-};
+}
 </script>
 
 <style scoped lang="scss">
-
+    .xxx ::v-deep li{
+        background: white;
+        &.selected{
+            background: #c4c4c4;
+            &::after{
+                display: none;
+            }
+        }
+    }
 
 </style>

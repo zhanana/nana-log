@@ -36,6 +36,8 @@ export default class EditLabel extends Vue {
     return this.$store.state.currentTag
   }  
   created() {
+    console.log(this.$route);
+    
     const id = this.$route.params.id;
     this.$store.commit('fetchTags');
     this.$store.commit('setCurrentTag',id);
