@@ -1,7 +1,12 @@
 <template>
     <Layout>
-         <Types class-prefix="xxx" :value.sync="yyy"/>
-         <Tabs :data-source="array" :value.sync = "hhh"/>
+         <Tabs class-prefix="type" :data-source="typeList" :value.sync = "type"/>
+         <Tabs class-prefix="interval" :data-source="intervalList" :value.sync = "interval"/>
+         <div>
+             type:{{type}}
+             <br/>
+             interval:{{interval}}
+         </div>
     </Layout>
 </template>
 
@@ -17,18 +22,23 @@ import { Component } from "vue-property-decorator"
     },
 })
 export default class Statistics extends Vue{
-    yyy = '-';
-    hhh = 'day';
-    array = [
+    type = '-';
+    interval = 'day';
+    intervalList = [
         {text:'按天',value:'day'},
         {text:'按周',value:'week'},
-        {text:'按月',value:'month'},]
+        {text:'按月',value:'month'},
+    ];
+    typeList = [
+        {text:'支出',value:'-'},
+        {text:'收入',value:'+'},
+    ]
 
 }
 </script>
 
 <style scoped lang="scss">
-    ::v-deep .xxx-item{
+    ::v-deep .type-tabs-item{
         background: white;
         &.selected {
             background: #c4c4c4;
