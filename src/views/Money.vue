@@ -3,7 +3,7 @@
     <Number-pad :value.sync="record.amount" @submit="saveRecord" />
     <Tabs :data-source="recordTypeList"
           :value.sync="record.type" />
-    <div class="notes">
+    <div class="money-notes">
       <FormItem
         field-name="备注"
         placeholder="请输入你的备注"
@@ -65,14 +65,13 @@ export default class Money extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .layout-content {
   display: flex;
   flex-direction: column-reverse;
 }
-.notes {
+.money-notes {
   padding: 12px 0;
 }
 </style>
-<style scoped lang="scss">
-</style>
+
