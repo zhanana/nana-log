@@ -21,6 +21,8 @@ export default class Tabs extends Vue {
   readonly value!: string;
   @Prop(String)
   classPrefix?: string;
+  @Prop({type:String,default:'64px'})
+  height!:string;//可以在这利用js写css
 
   liClass(item:DataSourceItem){
     return{
