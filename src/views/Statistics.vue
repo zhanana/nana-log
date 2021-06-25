@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts">
-import Types from '@/components/money/Types.vue';
 import Tabs from '@/components/Tabs.vue';
 import Vue from 'vue';
 import { Component } from "vue-property-decorator";
@@ -19,7 +18,6 @@ import intervalList from '@/constant/intervalList';
 import recordTypeList from '@/constant/recordTypeList';
 @Component({
     components: {
-        Types,
         Tabs
     },
 })
