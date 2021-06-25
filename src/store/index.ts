@@ -57,7 +57,7 @@ const store = new Vuex.Store({
     },
     createRecord(state,record){
       const record2: RecordItem = clone(record); //深拷贝，record2只是拷贝了record
-        record2.createAt = new Date();
+        record2.createAt = new Date().toISOString();
         state.recordList.push(record2);//判断存在才能push
         console.log(state.recordList);
         store.commit('saveRecords')
